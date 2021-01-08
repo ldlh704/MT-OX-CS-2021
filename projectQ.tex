@@ -1,0 +1,141 @@
+%Q1
+\renewcommand{\arraystretch}{1.5}
+\newcommand\qone{
+\vspace{-30} \begin{question}[
+    \small{ \textbf{Modify Pumping Lemma for context-free Languages}}] \vspace{5pt} \\
+ Consider modifying the statement of the pumping lemma, whereby 
+\[ \begin{array}{clc}
+    ``\mbox{1. for each } i \geq 0, uv^\mathbf{i}xy^\mathbf{i}z \in A'  \\
+     \mbox{is replaced with} \\
+   '\mbox{Q1. for each } i \geq 0 \mbox{ and for each } j \geq 0, uv^\mathbf{i}xy^\mathbf{j}z \in A'. \\
+\end{array} \]
+    
+    \begin{enumerate}
+             \item Prove this version does not hold for all context-free languages.
+             \item Identify a non-trivial sub-class of context-free languages for which this modified 'lemma' is no different in effect to the actual pumping lemma.
+    \end{enumerate} \hline
+    \end{question}
+}
+    
+    %qone%
+    
+    
+\newcommand\qtwo{
+\begin{question}[
+\small{ \textbf{Modify the Kleene Star Operator}}] \\
+ Consider changing the semantics of the Kleene Star operator on a Language $L$:
+ ``For every language $L$, the language $L^*$ includes ach wors that is the concatenation of several (possibly zero) copies of a word in L." 
+
+\[ \mathbf{i.e.} \ Suppose \  w \in L^* \ is \ a \ word, \ then \ it \ is \ of \ the \ form \  w=x...x \ for \ some \ x \in L \]
+
+    With this new semantics, consider the star operation on the class of languages: regular expressions $L(R)$. 
+    \\
+1. Compare $L(R)^*$ with the classes of regular languages and context-free languages.
+
+     \end{question}
+}
+     
+    
+     
+    
+
+%qthree%
+
+\newcommand\qthree{ \begin{question}[\small{\textbf{Expressive Power}}]
+    \vspace{5pt} \\ Consider a 'Right-Flooding' Turing Machine.  \vspace{5pt} \\
+\small{\textbf{Two-Tape Turing Machine:}} \vspace{3} \small{First tape is input, and can read-only. Second tape is initialised empty, and can both read and write.} \vspace{3} \\ 
+
+\small{ \textbf{'Right-Flooding' TM:}} \small{ Defined the same as the above two-tape machine, except each writing operation to the second tape (including the case when the written symbol is the same as the read symbol) is right-flooding} \vspace{5} \\
+i.e. \vspace{1} \
+\textbf{\indent{New symbols written are written into all (infinitely many) cells to the right of the head: not only into the cell under the head.}} \vspace{5} \\
+\small{ By considering their expressive power, examine the relationships between 'Right-Flooding' Turing Machines and } \begin{enumerate}
+             \item Single-Tape Turing Machines
+             \item Two-Tape Turing Machines
+             \item Pushdown Automota, NFAs and DFAs
+    \end{enumerate} \hline
+    \end{question}
+}
+   
+   
+    
+%four%
+\newcommand\qfour{
+\begin{question}[
+\small{\textbf{Rice}}] \vspace{5pt} \\
+    \begin{enumerate}
+       \item Is it decidable whether the language of a Turing Machine is decidable? \\
+             \item Is it semi-decidable whether the language of a Turing Machine is decidable? \\ 
+\end{enumerate} \hline \\
+\end{question}
+}
+
+%four%
+
+%five%
+\newcommand\qfive{
+\begin{question}[
+\small{\textbf{SAT\_NOT\_TOTAL}}]
+\vspace{5pt} \\
+Let \texttt{\textbf{SAT\_NOT\_TOTAL}} be the problem taking as input a propositional formula $\Phi$ in CNF such that the assignment of all its variable to true is satisfying, and returns true if and if there is another satisfying assignment. 
+\[ \mathbf{i.e.} \ An \ assignment \ satisfying \ \Phi \ that \ maps \ at \ least \ one \ variable \ to \ false. \]
+    \begin{enumerate}
+             \item Show that \texttt{\sat} is NP-complete.
+    \end{enumerate}\hline
+    \end{question}
+}
+%five%
+
+%six%
+
+\newcommand\qsix{
+\begin{question}[
+\small{\textbf{Arbitrary Polynomial-Time Reductions}}] \vspace{5pt} \\
+In the lectures, we have discussed only polynomial-time reductions that are many-one. Give a formal definition of polynomial-time reductions that are arbitrary.
+\[ \mathbf {i.e.} \ \textit{Arbitrary} \ \text{is to say without any other restrictions}  \]
+    \begin{enumerate}
+             \item Explain how a change from many-one polynomial-time reductions to arbitrary polynomial-time reductions affects the classes of NP, NP-hard, and NP-complete problems. 
+    \end{enumerate}\hline
+    \end{question}
+}
+    
+%six%
+
+%seven%
+
+\newcommand\qseven{
+\begin{question}[
+\small{\textbf{First-Order Signature, Logic, and Graph Theory}}] \vspace{5pt} \\
+ Let $\Sigma$ a (first-order) signature that consists of a single binary predicate Edge. Write a first-order logic with equality sentence.  \emph{i.e. Arbitrary} \ \text{(a formula without free variables)} \\ over $\sigma$ that, when evaluated over interpretations that are (connected and finite) acyclic directed graphs, evaluate to true if and only if the graph is a directed rooted binary tree.
+    \begin{enumerate}
+        \item Show that your sentence does not have this property when evaluated over all finite interpretations. \\
+            \item Is it possible to write such a sentence for all finite interpretations? \hline \\
+\end{enumerate} \\ \vspace{10} \\ 
+\end{question}
+}
+    
+%seven%
+
+
+%qeight%\\
+
+
+\newcommand\qeight{
+\begin{question}[
+\small{ \textbf{Algorithms and Atomic Sentences}}] \vspace{5pt} \\
+Consider the Kleene Star operator on a Language $L$. We modify its semantics:
+  \paragraph{ "For every language $L$, the language $L^*$ includes each word that is the concatenation of several (possibly zero) copies of a word in L." }
+
+\[ \mathbf{i.e.} \ Suppose \  w \in L^* \ is \ a \ word, \ then \ it \ is \ of \ the \ form \  w=x...x \ for \ some \ x \in L \]
+
+    With this new semantics, consider the class of languages: regular expressions operated on by the modified Kleene Star, $L_x$.  \begin{enumerate}
+   
+
+             \item Compare $L_x$ with the class of regular languages, $L$.
+             \item Compare $L_x$ with the class of context-free languages, $L_{cf}$
+         
+    \end{enumerate}\hline
+    \end{question}
+}
+
+    
+

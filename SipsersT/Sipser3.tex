@@ -1,0 +1,111 @@
+ 
+ \newcommand\defnwa{
+  \begin{definition}[Expressive Power]
+  
+  
+  \\stupid
+  The term expressive power may be used with a range of meaning. It may mean a measure of the ideas expressible in that language:
+regardless of ease (theoretical expressivity)
+concisely and readily (practical expressivity)
+  \end{definition}
+  \begin{definition}[Chomsky Language Hierarchy]
+ the Chomsky hierarchy. It says, for instance, that regular expressions, nondeterministic finite automatons and regular grammars have equal expressive power, while that of context-free grammars is greater; what this means is that the sets of sets of strings described by the first three formalisms are equal, and a proper subset of the set of sets of strings described by context-free grammars.
+
+In this area, the cost of expressive power is a central topic of study. It is known, for instance, that deciding whether two arbitrary regular expressions describe the same set of strings is hard, while doing the same for arbitrary context-free grammars is completely impossible. However, it can still be efficiently decided whether any given string is in the set.
+
+For more expressive formalisms, this problem can be harder, or even undecidable. For a Turing complete formalism, such as arbitrary formal grammars, not only this problem, but every nontrivial property regarding the set of strings they describe is undecidable, a fact known as Rice's Theorem.
+  
+  \end{definition}
+  
+  
+ 
+ }
+ 
+ 
+ \newcommand\deftm{
+ \begin{definition}[Single-Tape Turing Machine]
+ $A\  Turing\  Machine\  is\  a\  7-tuple,\  \left( Q,\  \Sigma ,\  \Gamma ,\  \delta ,\  q_{0},\  q_{accept},\  q_{reject}\right)  ,\  where$, \\
+ $Q, \ \Sigma, \ \Gamma$ are all finite sets and \\ 
+ \begin{enumerate}
+     \item $Q$ is the set of states,
+     \item $ \Sigma $ is the input alphabet not containing the \emph{blank symbol} $\sqcup $
+     \item $\Gamma$ is the tape alphabet, where $\sqcup \in \Gamma$ and $\Sigma \subseteq \Gamma$
+     \item $\delta: Q \cross \Gamma \longrightarrow Q \cross \Gamma \cross \{L,R  \}$ is the transition function
+     \item $q_{0} \in Q$ is the start state
+     \item $q_{accept} \in Q$ is the accept state, and
+     \item $q_{reject} \in Q$ is the reject state, where $q_{reject} \neq q_{accept}$
+ \end{enumerate}
+ 
+ Standard 7 things. add
+ \end{definition}
+ $Remark:$ \vspace{10}\\
+ Computation of a Turing machine
+\begin{enumerate}
+\item $M$ receives input $w = w_1\cdots w_n \in \Sigma^*$ on the leftmost $n$ squares of the tape and the rest of the tape is blank.
+\item If $M$ ever tries to move to the left off the left-hand end of the tape, the head stays in the same place for that move.
+\item Computation halts when it enters either accept or reject state. If neither occurs, $M$ loops forever.
+\end{enumerate}
+
+A \textbf{configuration} of the TM consists of the current state, the current tape content, and the current head location.
+
+Configuration $C_1$ \textbf{yields} configuration $C_2$ if the TM can legally go from $C_1$ to $C_2$ in a single step.
+
+The \textbf{start configuration} of $M$ on input $w$ is the configuration $q_0w$.
+
+\textbf{Accepting and rejecting configurations} are \textbf{halting configurations} and do not yield further configurations.
+
+ }
+
+\newcommand\defturingsecret{
+
+\begin{definition}[Right-Flooding Turing Machine] \label{Sipser p999}[M. Sipser, p999]
+Call a language Turing-Flooded if some Turing recognises it in club.
+\end{definition}
+
+\begin{definition}[Two-Tape Turing Machine] \label{Sipser p170}[M. Sipser, p170]
+Eschew out def in Q and add diagram ? or some thing sex bc look boring ow.
+\end{definition}
+
+\begin{definition} \label{Sipser p170}[M. Sipser, p170]
+Call a language Turing-recognizable if some Turing machine recognizes it.
+\end{definition}
+ 
+}
+
+\newcommand\deftape{
+ \begin{theorem} \label{Sipser p177}[M. Sipser, p177]
+ Every multitape Turing machine has an equivalent single-tape Turing machine.
+ \end{theorem}
+
+ }
+ 
+ 
+\newcommand\deftrecdec{
+\begin{definition} \label{Sipser p170}[M. Sipser, p170]
+Call a language Turing-recognizable if some Turing machine recognizes it.
+\end{definition}
+\\
+$Remark:$ \ Also known as $ recursively \ enumerable \ language$ \\
+we prefer Turing machines that halt on all inputs; such machines never loop. These ma- chines are called deciders because they always make a decision to accept or reject. A decider that recognizes some language also is said to decide that language. (sip)
+\\
+\begin{definition} \label{Sipser p170}[M. Sipser, p170]
+Call a language Turing-decidable or simply decidable if some Turing machine decides it.
+\end{definition}
+\\
+$Remarks:$ \begin{easylist*}
+    \\&1. Also known as recursive language
+    \\&2. Every decidable language is Turing-recognizable
+\end{easylist*}
+\\
+
+ \\
+  \begin{theorem} \label{Sipser p181}[M. Sipser, p181]
+A language is Turing-recognizable if and only if some enumerator enumerates it.
+ \end{theorem}
+}
+
+\newcommand\thmsavage{
+$For\  any\  function\  f:\mathcal{N} \  \longrightarrow \  \mathcal{R}^{+} ,\  where\  f\left( n\right)  \geq \  n,\$ \\
+\[NSPACE\left( f\left( n\right)  \right)  \subseteq \  SPACE\left( f\left( n\right)  \right) \]
+
+}

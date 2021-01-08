@@ -1,0 +1,94 @@
+\newcommand{\desc}[1]{\langle{#1}\rangle}
+\newcommand\prooffour{
+
+A set $A$ is \textbf{countable} if either it is finite or it has the same size as $\mathbb{N}$.
+\\
+Claim: $\mathbb{R}$ is uncountable.
+$A_{TM}$ is undecidable.
+\[
+A_\text{TM} = \{\desc{M, w} \mid M \text{ is a TM and M accepts w} \}
+\]
+
+
+
+Suppose that $H$ is a decider for $A_\text{TM}$.
+\[
+H(\desc{M, w}) = \begin{cases}
+accept \quad \text{if $M$ accepts $w$}\\
+reject \quad \text{if $M$ does not accept $w$}
+\end{cases}
+\]
+
+Construct a new TM $D$ with $H$ as a subroutine. $D$ calls $H$ to determine what $M$ does when the input to $M$ is $\desc{M}$ and it does the opposite.
+
+\medskip
+$D$ = On input $\desc{M}$, where $M$ is a TM:
+\begin{enumerate}
+\item Run $H$ on input $\desc{M, \desc{M}}$.
+\item Output the opposite of what $H$ outputs. If $H$ accepts, \textit{reject}; if $H$ rejects, \textit{accept}.
+\end{enumerate}
+
+\[
+D(\desc{M}) =\begin{cases}
+accept \quad \text{if $M$ does not accept $\desc{M}$} \\
+reject \quad \text{if $M$ accepts $\desc{M}$}
+\end{cases}
+\]
+
+Then we run $D$ with its own description $\desc{D}$.
+\[
+D(\desc{D}) = \begin{cases}
+accept \quad \text{if $D$ does not accept $\desc{D}$}\\
+reject \quad \text{if $D$ accepts $\desc{D}$}.
+\end{cases}
+\]
+
+
+Assume that a TM $H$ decides $A_\text{TM}$. Use $H$ to build a TM $D$ that takes an input $\desc{M}$, where $D$ accepts its input $\desc{M}$ exactly when $M$ does not accept its input $\desc{M}$. Finally, run $D$ on itself.
+\begin{itemize}
+\item $H$ accepts $\desc{M, w}$ exactly when $M$ accepts $w$.
+\item $D$ rejects $\desc{M}$ exactly when $M$ accepts $\desc{M}$.
+\item $D$ rejects $\desc{D}$ exactly when $D$ accepts $\desc{D}$.
+\end{itemize}
+
+This is analogous to a formal diagonalization argument: Construct the matrix $T(i,j)$, where the value at $(i, j)$ is the result of $H(\desc{M_i, \desc{M_j}})$. A machine $D$ can be constructed where a contradiction arises on the element along the diagonal where $D$ is run on input $\desc{D}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+\begin{definition}
+A class of languages $\mathcal{S}$ is called a property of Turing-recognisable languages if the members of $\mathcal{S}$ are Turing-recognisable languages. \\ $i.e.$ for every $L \in \mathcal{S}$ there exists a TM which recognises it. 
+\end{definition}
+
+\begin{definition}[non-trivial]
+Let $\mathcal{S}$ be a property of Turing-recognisable languages. $\mathcal{S}$ is non-trivial if there exist two Turing -recognisable languages $L_{1}$ and $L_{2}$ $s.t.$ $L_{1} \in \mathcal{S}$ but $L_{2} \notin \mathcal{S}$. Properties of Turing-recognisable languages which are trivial are \emph{not} non-trivial. 
+
+\end{definition}
+
+
+
+
+
+
+\begin{definition}[$\mathcal{S}_{TM}$]
+Let $\mathcal{S}$ be a property. Then 
+\\
+$\mathcal{S}_{TM} :=\left\{ \langle M\rangle \  |\  L\left( M\right)  \in \mathcal{S} \right\}  $
+\end{definition}
+
+\begin{theorem}[Rice Theorem]
+f $\mathcal{S}$ is a non-trivial property of Turing-recognisable languages, then $\mathcal{S}_{TM}$ is undecidable.
+Misconception: Rice does not do Q4.
+\end{theorem}

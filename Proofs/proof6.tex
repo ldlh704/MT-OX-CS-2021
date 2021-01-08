@@ -1,0 +1,16 @@
+ \newcommand\proofsix{
+ 
+ A problem $A$ is Turing-reducible to a problem $B$ if $A$ can be solved using a program
+for solving $B$ as a sub-program. To define polynomial-time Turing-reduction, we say
+that $A$ is polynomial-time Turing-reducible to $B$ if there is a program that solves $A$ in
+polynomial-time using a program for solving $B$ as a sub-program, where the time spent in
+this sub-program is discounted.
+This can be made formal by defining oracle Turing-machines, but I would not require the
+students to do this.
+Polynomial-time Turing-reductions can not be used to show NP-completeness, as for instance the problem, given a graph $G$ and a number $k$, to decide that $G$ contains no clique
+of size $k$ is easily seen to be polynomial-time Turing-reducible to Clique, but clearly the
+former is co-NP-complete. The problem is that by using Turing-reduction, the result of
+a non-deterministic computation can be negated, which is impossible in non-deterministic
+Turing-machines
+
+}

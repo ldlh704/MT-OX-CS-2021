@@ -1,0 +1,82 @@
+\proof7{
+Source: 2008 Computational Complexity Paper. If not probs partial or fuk ot
+
+Need to write if want:
+
+Question 3
+(a) Order the following complexity classes with respect to inclusion ⊆ :
+Ptime,Logspace, APspace, Pspace, ALogspace, APtime, NExptime
+Which of the inclusions are known to be strict? (6 marks)
+(b) Consider the following problem:
+Evaluate
+Input: Formula 휙 of propositional logic without variables,
+i.e., a Boolean combination of atoms 0, 1.
+Problem: Does 휙 evaluate to true?
+– 1 –
+Show that this problem is in Logspace. You need not describe your algorithm formally.
+(10 marks)
+(c) Define the CircuitValueProblem (CVP) and state its complexity by placing it precisely
+in the hierarchy of complexity classes described in part (a). (4 marks)
+(d) To every instance 퐶 of CVP we can naturally associate a formula in propositional logic
+without variables and, conversely, every such formula naturally translates into an instance
+of CVP.
+Explain this correspondence and comment on why this does not conflict with the complexity results in part (b) and part (c). (5 marks)
+\\
+Proof:
+Answer to question 3
+(a) Logspace ⊆ ALogspace = Ptime ⊆ APtime = Pspace ⊆ APspace ⊆ NExptime.
+Logspace is strictly contained in Pspace; Ptime is strictly contained in APspace as
+this equals Exptime.
+(b) To simplify notation, assume that the input formula is given by its syntax tree. To check
+that the formula evaluates to 1 proceed as follows: Start at the root 푟 and set the current
+vertex 푣 := 푟. If this is a truth value, return it. Otherwise, set 푣 to the left successor 푣
+′
+and proceed recursively. It is important here, that we re-use the same space used to store
+푣. In particular, once the recursive call to the left successor returned a result 푡, we cannot
+simply store 푡 and proceed with the right successor, as this would use too much space in
+total.
+Suppose a recursive call of the algorithm on a vertex 푣 has produced a truth value 푡. The
+next step is to look up the predecessor 푣
+′ of 푣. If 푣 is the left child of 푣
+′ and the truth
+value of 푣
+′
+is already determined by 푡, i.e. if 푣
+′
+is a ∨-node and 푡 = 1 or 푣
+′
+is a ∧-node and
+푡 = 0, then return to 푣
+′ and do not go into the right sub tree. Otherwise proceed with the
+right successor of 푣
+′
+re-using the space used for the left successor.
+If 푣 is the right child of 푣
+′
+then the truth value of 푣
+′
+is determined by 푡, i.e. 푣
+′
+evaluates
+to 1 if, and only if, 푡 = 1. This follows from the fact that we only called the algorithm
+– 5 –
+recursively for the right successor of a node 푣 if its truth value has not already been
+determined by the result for the left successor.
+The algorithm is correct and only uses two pointers into the tree – one to store the current
+node and another to search for a successor of the current node – and one additional bit 푡.
+(c) A circuit is a connected directed acyclic graph with exactly one vertex of in-degree 0.
+The vertices are labelled by exactly one of ∧,∨,¬, 0, 1 and vertices labelled by ∧,∨ have
+2, vertices labelled by ¬ have 1, and vertices labelled by 0, 1 have no successor.
+The Circuit Value Problem is to decide for a given circuit if it evaluates to 1. It is Ptimecomplete.
+(d) The translation is obvious. However, circuits are acyclic, but not necessarily trees. So the
+translation from circuits to formulae may blow up the instance exponentially.
+
+
+\\
+
+
+
+
+
+
+}

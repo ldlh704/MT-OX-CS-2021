@@ -1,0 +1,238 @@
+
+\newcommand\afterthree{
+
+
+\begin{definition}[$A_{TM}$]
+$A_{TM}:=\left\{ \left< M,w\right>  |\  M\  is\  a\  TM\  and\  M\  accepts\  string\  w\right\}  $
+\end{definition}
+
+
+
+
+
+
+
+
+
+\begin{definition}[NP Decision Problem]
+A decision problem is in NP if it can be solved by a non-deterministic algorithm in polynomial time. A non-deterministic algorithm is an algorithm s.t. even for the same input, can be processed differently across different runs.
+\end{definition}
+
+\begin{definition}
+An instance of the Boolean satisfiability problem is a Boolean expression that combines Boolean variables and using Boolean operators.
+\end{definition}
+
+\begin{definition}
+An expression is satisfiable if there is some assignment of truth values to the variables that make the expression true.
+\end{definition}
+\\
+\begin{theorem}[Cook-Levin Theorem]
+Cookie. Partial proof
+\end{theorem}
+\\
+\qfive
+Naturally follows as a consequence of the Cookie. Because its top dog bad-bitch of the NP-satisfiability hierarchy. 
+\\
+\begin{definition}[Arbitrary Polynomial Time Reductions]
+Place
+\end{definition}
+\\
+\begin{definition}[Many-to-one Polynomial Time Reductions]
+Place
+\end{definition}
+\\
+\begin{definition}[Monte-Carlo Least Squares]
+Place
+\end{definition}
+\\
+\begin{definition}[Monte-Carlo Gaussian Quadrature]
+Place
+\end{definition}
+\qsix
+
+\\
+\section{Predicate Logic}
+\begin{definition}
+Directed root graph binary tree
+\end{definition}
+\\
+\begin{theorem}[Fitz-Margolish Phylogenetic Tree Algorithm]
+Directed root graph binary tree
+\end{theorem}
+
+\begin{definition}[Jukes-Cantor Distance]
+Fitz and /upmga?
+\end{definition}
+
+\begin{definition}[First-order logic with equality sentence]
+Fitz and /upmga?
+\end{definition}
+
+\begin{definition}[Predicate First-Order Logic]
+Fitz and /upmga?
+\end{definition}
+
+\begin{definition}[Directed Rooted Binary Tree]
+Fitz and /upmga?
+\end{definition}
+
+\begin{definition}[??Ham-Path? Hamiltonian Graph ineq? Brook's chromatic poly or his colouring thm bc reording is NFA stack]
+Fitz and /upmga?
+\end{definition}
+\\
+\begin{definition}[MST - Kruskal or Djikstra or Mill ? min flow max cut or something]
+Fitz and /upmga?
+\end{definition}
+\\
+\qseven
+\\
+
+\begin{definition}[Dynamic Programming?]
+Maybe atomic sent shirte or chinese remaninder thm.
+\end{definition}
+
+\begin{definition}[Hamming Distance]
+
+\end{definition}
+\begin{definition}[Fibbonaci Sequence]
+
+\end{definition}
+\begin{theorem}[Homogenous solution to Fibbonaci Recursion and limit]
+
+\end{theorem}
+\begin{definition}{Nearest neighbour}
+
+\end{definition}
+\\
+\qeight
+\\
+pseudo-code
+\\
+}
+
+
+
+Remove, source or replace.
+
+
+\centerline{\Large \bf Probabilistic Context Free Grammars (PCFGs)}
+
+\bigskip
+
+We assume a fixed set of nonterminal symbols (e.g., syntactic categories) and terminal symbols (individual words).
+We let $X$, $Y$, and $Z$ range over nonterminals and $w$ range over terminals.
+
+
+A rule has the form
+
+$$X \rightarrow \alpha_1\alpha_2\ldots\alpha_n$$
+
+where $\alpha_i$ can be either a terminal or nonterminal symbol.
+
+A grammar has a distinguished start nonterminal (the sentence category) and a set of rules.
+
+
+A grammar determines a language (a set of terminal strings).
+
+\section{Chomsky Normal Form}
+
+We can always replace $\alpha_i\alpha_{i+1}$ by a fresh nonterminal $Y$ and the rule
+$Y \rightarrow \alpha_i\alpha_{i+1}$.
+
+
+If $\alpha_i$ is a terminal symbol we can replace it by a new nonterminal $Y$ and the rule $Y \rightarrow \alpha_i$.
+
+
+By repeating these transformations we get a grammar in {\em Chomsky normal form} where all productions are in one of the two forms
+$X \rightarrow YZ$ or $X \rightarrow w$.
+
+\section{CKY Parsing}
+
+Suppose we are given a string $w_1w_2\cdots w_T$
+
+
+\begin{eqnarray*}
+\mathrm{Chart}[X,i,i] & = & \left\{\begin{array}{ll}
+                        1 & \mbox{if $X \rightarrow w_i$ is a rule} \\
+			0 & \mbox{otherwise}
+			\end{array}\right.
+\\
+\\
+\\
+\\
+\mathrm{Chart}[X,i,j] & = & \bigvee_{j: i \leq k < j} \;\;\bigvee_{X \rightarrow YZ} \;\; \mathrm{Chart}(Y,i,k)\bigwedge\mathrm{Chart}[Z,k+1,j]
+\end{eqnarray*}
+
+\section{Probabilistic Context Free Grammars}
+
+A PCFG assigns each rule $X \rightarrow \beta$ a probability $\prob{X \rightarrow \beta}$
+satisfying the following.
+$$\bigsum{\beta}{}  \prob{X \rightarrow \beta} = 1$$
+
+
+A PCFG assigns a probability to each string.
+
+\section{Parsing Chomsky Normal Form PCFGs: The Inside Algorithm}
+Considr a string $w_1\ldots w_n$.
+Let $\mathrm{Chart}[X,i,j]$ be the probability that $X$ generates $w_i\ldots w_j$.
+
+\begin{eqnarray*}
+\mathrm{Chart}[X,i,i] & = & \prob{X \rightarrow w_i}
+\\
+\\
+\mathrm{Chart}[X,i,j] & = & \sum_{k: i \leq k < j} \;\;\sum_{X \rightarrow YZ}
+\\
+\\
+ & & \prob{X\rightarrow YZ}\mathrm{Chart}(Y,i,k)\mathrm{Chart}[Z,k+1,j]
+\end{eqnarray*}
+
+\section{Inside Running Time}
+\begin{eqnarray*}
+\mathrm{Chart}[X,i,i] & = & \prob{X \rightarrow w_i}  \\ \\
+\for{2 \leq l \leq n}{}\; \\
+\for{1 \leq i \leq n-l+1}{} & & \;j = i+l; \\
+\for{i<k<i+l}{} \\
+\for{X\rightarrow YZ}{} \\ \\
+\;\;\mathrm{Chart}[X,i,j] & += & \prob{X\rightarrow YZ}\mathrm{Chart}[Y,i,k]\mathrm{Chart}[Z,k+1,j]
+\end{eqnarray*}
+
+
+The inside algorithm is $O(|G|n^3)$ where $|G|$ is the number of productions in the grammar.
+
+\section{Consistency}
+
+It is not necessarily true that a PCFG yields a distribution over strings.
+The sum over all strings of the probability of that string can be strictly less than one.
+This happens if there a nonzero probability that the expansion process fails to terminate.
+consider
+
+$$P(S \rightarrow w) = p$$
+$$P(S \rightarrow SS) = 1-p$$
+
+
+The number of occurances of $S$ in the expansion forms a random walk.  If $p < 1/2$ there is a nonzero probability that this walk never reaches zero.
+
+\section{A Test for Consistency}
+
+Let $M_{i,j}$ be the probability that when $X_i$ is expanded, the
+expansion includes $X_j$.  A PCFG is consistent if all eigenvalues of
+$M$ have magnitude less than one (the spectral radius is less than
+one).  If some eigenvalue has magnitude greater than one, and all
+nonterminals are reachable from the sentence symbol, the PCFG is
+inconsistent.
+
+\section{Consistency for Counts}
+
+Consider a sample $S$ of derivation trees, e.g., the Penn treebank.  Let $P_S(X\rightarrow\gamma)$ be $\scount(X\rightarrow\gamma)/\scount(X)$
+where $\scount(X)$ is the number of occurances of $X$ in the derivation trees and $\scount(X\rightarrow \gamma)$ is the number of occurances of the production $X\rightarrow \gamma$.
+
+
+$P_S$ is the maximum likelihood PCFG for the sample $S$, i.e., it maximizes $P(S|G)$ over PCFGs $G$.
+$P_S$ is always consistent.
+
+
+\section{Problem}
+
+Show that any PCFG can be put in Chomsky normal form in such a way that it defines
+the same probability for each string.
+
